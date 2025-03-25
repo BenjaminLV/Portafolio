@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+            transition: background 0.5s;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1400px;
+
+            background-image: url('imagenes/fondo.jpg');
+            background-size: auto 100%;
+
+            
+            background-repeat: no-repeat;
+            overflow: hidden; /* Oculta el scroll */
+
+            
+
+        }
+
+        
+       
+        /* Contenedores de Bienvenidos */
+        .welcome-container, .welcome-container-bottom {
+            position: relative;
+            
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+        }
+        .welcome-container {
+            margin-top: 7.5%;
+            position: relative; /* Fija el contenedor arriba del todo */
+            top: -200; /* Se asegura de que esté pegado al borde superior */
+            left: 0;
+            width: 100%;
+            display: flex;
+            
+            
+            padding: 10px 0; /* Espacio para que los textos no estén pegados al borde */
+           
+        }
+
+        .welcome-bottom {
+            position: relative;
+            left: -150px;
+            margin-top: -20px;
+            font-size: 24px;
+            color: white;
+            font-family: chunk, Arial, sans-serif;
+            padding: 5px 15px;
+            
+            animation: moveRight 20s linear infinite; /* Animación de movimiento */
+        }
+
+        /* Opcional: Ajuste de la animación */
+        @keyframes moveRight {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+
+
+
+    .container {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Contenedor principal para que la lista esté a la derecha */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh; /* Toda la pantalla */
+    padding: 20px;
+    
+}
+
+/* Mitad derecha (Lista de proyectos) */
+.projects-container {
+    
+    width: 40%; /* Ajustar tamaño de la lista */
+    padding: 20px;
+    overflow-y: auto;
+    text-align: left;
+    position: absolute;
+    right: 5%;
+    top: 20%; /* Posiciona la lista en la parte superior derecha */
+}
+
+/* Mitad izquierda (Imagen) */
+.image-container {
+    width: 40%;
+    position: absolute;
+    bottom: 5%; /* Fija la imagen en la parte inferior izquierda */
+    left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 900px; /* Hace la imagen más grande */
+    max-width: 1000px;
+    height: 100%;
+    display: none; /* Ocultar por defecto */
+}
+
+/* Ajuste de los proyectos */
+.project-list {
+    list-style: none;
+    padding: 0;
+}
+
+.project-item {
+    font-size: 22px;
+    padding: 20px 0;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.project-item:hover {
+    color:#7b6b44;
+}
+
+.project-details {
+    overflow-y: hidden;
+    display: none; /* Oculto por defecto */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 5px;
+    animation: expand 0.3s ease-out;
+}
+
+.project-details p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.project-details a {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #c1aa75;
+    color: black;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.project-details a:hover {
+
+    background: #7b6b44;
+}
+
+#category-text {
+    position: relative;
+    cursor: pointer;
+}
+
+.pagination {
+    display: none; /* Ocultar inicialmente */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    
+    
+}
+
+.pagination button {
+    /* Hacer el botón completamente invisible excepto por el texto */
+    background: none;
+    border: none;
+    outline: none;
+    color: inherit; /* Mantener el color del texto */
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.pagination button:hover {
+    /* Hacer el botón completamente invisible excepto por el texto */
+    color: #c1aa75;
+}
+
+
+#category-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Posiciona la línea debajo del texto */
+    width: 0;
+    height: 2px;
+    background-color:#c1aa75;
+    transition: width 0.3s ease-in-out;
+}
+
+#category-text:hover::after {
+    width: 100%;
+}
+
+@keyframes expand {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 100px;
+        opacity: 1;
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Pacifico&family=Press+Start+2P&display=swap');
+
+.font1 { font-family: 'magi', sans-serif; }
+.font2 { font-family: 'brolimo', cursive; }
+.font3 { font-family: 'chunk', cursive; }
+
+    </style>
+</head>
+<body>
+    <button class="menu-btn" id="menu-btn">&#9776;</button>
+
+    <div class="navbar" id="navbar">
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="info/CV-López_Villarraso_Benjamín .pdf" target="_blank">Curriculum</a>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="row">
+                    <span>&copy; Benjamín López Villaraso 2025</span>
+                    <span>Full Stack Developer</span>
+                </div>
+                <div class="row">
+                    <span>benjaminlopezvillaraso@gmail.com</span>
+                    <span>628539739</span>
+                    <span>Granada, España</span>
+                </div>
+            </div>
+            <div class="redes-sociales">
+                <a href="https://www.linkedin.com/in/benjamin-l%C3%B3pez-villarraso-936440335/" target="_blank"><img src="imagenes/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/BenjaminLV" target="_blank"><img src="imagenes/github.png" alt="GitHub"></a>
+                <a href="https://www.instagram.com/lopezz.vllrrso_/?next=%2Fdirect%2Finbox%2F" target="_blank" style="padding-left: 28px;"><img src="imagenes/instagram.png" alt="Instagram"></a>
+
+            </div>
+        </footer>
+        
+    </div>
+
+
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+
+    <div class="header" id="header">
+        <a href="index.html"><img src="imagenes/logo_negro-removebg.png" alt="Logo" style="height: 100px; width: 100px;"></a>
+    </div>
+    <div class="fixed-icon">
+        <img src="imagenes/logo_negro.png" alt="icon" width="20">
+        <span>EN</span>
+    </div>
+
+    <!-- Contenedor de los "Sobre mí" debajo del logo -->
+    <div class="welcome-container">
+        <script>
+            for (let i = 0; i < 50; i++) {
+                document.write('<div class="welcome-bottom">Proyectos</div>');
+            }
+        </script>
+    </div>
+
+
+
+
+
+
+
+    <!---->
+    <div class="main-container">
+        <!-- Contenedor de la imagen -->
+        <div class="image-container">
+            <img id="project-image" src="" alt="Imagen del proyecto">
+        </div>
+    
+        <div class="projects-container">
+            <h1 id="category-toggle">Proyectos <span id="category-text" style="font-family: sky; color: #c1aa75;">WEB</span></h1>
+            <ul class="project-list" id="project-list">
+                <!-- Los proyectos se generarán dinámicamente desde JavaScript -->
+            </ul>
+            <div class="pagination">
+                <button id="prev-page" style="display: none;">⬅️ Anterior</button>
+                <button id="next-page">Siguiente ➡️</button>
+            </div>
+            
+        </div>
+        
+    </div>
+        
+
+    <script>
+        const projectList = document.getElementById("project-list");
+        const projectImage = document.getElementById("project-image");
+        const categoryToggle = document.getElementById("category-toggle");
+        const categoryText = document.getElementById("category-text");
+
+        const webProjects = [
+            { name: "1. Instituto", image: "imagenes/insti.png", description: "Segundo proyecto web de un instituto con todas sus subramas y enlaces como uno de verdad", link: "https://github.com/BenjaminLV/Web-Instituto" },
+            { name: "2. Panaderia", image: "imagenes/panaderia.png", description: "Primer proyecto web de una panadería que se esta dando a conocer", link: "https://github.com/BenjaminLV/Web-Panaderia" },
+            { name: "3. Portafolio", image: "imagenes/portfolio.png", description: "Tercer proyecto web sobre hacer una web a conocerme junto a mis proyecto e información personal, intentando mejorarlo constantemente", link: "https://github.com/BenjaminLV/Portafolio" },
+            { name: "4. Tienda Deep Web", image: "imagenes/deep.png", description: "Cuarto proyecto web sobre hacer una estética de tienda online con temática 'Deep web/Mercado negro'<br>(La temática fue creada por uno de los compañero de mi formación y elegido aleatorio)", link: "https://github.com/BenjaminLV/Web-DeepShop" }
+        ];
+
+        const codeProjects = [
+            { name: "1. Space Dumps", image: "imagenes/juego1.png", description: "Mi primer proyecto en el primer año de DAW y uno de mis favoritos, incluso con pocas herramientas, cree uno de mis mejores códigos el cual también tiene algunas fugas, al haberlo creado sin funciones ya que no lo teníamos permitido en ese momento <br> <br> Requisitos->   Pygame, Colorama", link: "https://github.com/BenjaminLV/Space-Odyssey" },
+            { name: "2. Tienda Interactiva", image: "imagenes/videojuegos.jpg", description: "Segundo proyecto de primero, siendo una tienda de videojuegos la cual podías interactuar como <br>'Cliente' Comprando, llevando a reparar consolas... <br>'Gerente' Viendo datos de venta, almacen...", link: "https://github.com/BenjaminLV/Tienda-de-Videojuegos" },
+            { name: "3. AutoExamen", image: "imagenes/examen.jpg", description: "Mini proyecto de Corregidor de examanes tipo test, almacenando los datos del curso y estudiantes corregidos", link: "https://github.com/BenjaminLV/Corrector-Examen" },
+            { name: "4. Casino", image: "imagenes/casino.jpg", description: "Tercer Proyecto, donde serás una persona la cual podra ingresar y sacar dinero del banco para poder usarlo en un casino totalmente funciona con: <br> <br>Tragaperras, BlackJack, Ruleta entre otros.", link: "https://github.com/BenjaminLV/Casino" },
+            { name: "5. Agenda", image: "imagenes/agenda.jpg", description: "Mini proyecto, donde podrás introducir nombres de personas con su nombre, correo y número de teléfono. <br> Podrás revisarlos todos o buscarlo y editar sus datos.", link: "https://github.com/BenjaminLV/Agenda" },
+            { name: "6. Zoo", image: "imagenes/zoo.jpg", description: "Último proyecto del curso siendo un Zoo interactuable donde podrás visitar varias zonas con animales diferente, poder administrarlos, a la vez que los trabajadores.", link: "https://github.com/BenjaminLV/Virtual-Zoo" }
+        ];
+
+        let activeDetails = null; // Para rastrear el desplegable activo
+
+        const fonts = ["font1", "font2", "font3"];
+
+
+
+        // Variables de paginación
+let currentPage = 1;
+const projectsPerPage = 4;
+
+// Función para actualizar la lista con paginación
+function updatePaginatedProjectList(projects, page) {
+    projectList.innerHTML = ""; // Limpiar lista
+
+    // Calcular qué proyectos mostrar en esta página
+    const start = (page - 1) * projectsPerPage;
+    const end = start + projectsPerPage;
+    const projectsToShow = projects.slice(start, end);
+
+    projectsToShow.forEach((project, index) => {
+        const li = document.createElement("li");
+        li.classList.add("project-item", fonts[index % fonts.length]);
+        li.textContent = project.name;
+        li.setAttribute("data-image", project.image);
+
+        const details = document.createElement("div");
+        details.classList.add("project-details");
+        details.innerHTML = `
+            <p>${project.description}</p>
+            <a href="${project.link}" target="_blank">Ver más</a>
+        `;
+
+        li.addEventListener("mouseover", () => {
+            projectImage.src = project.image;
+            projectImage.style.display = "block";
+        });
+
+        li.addEventListener("mouseleave", () => {
+            projectImage.style.display = "none";
+        });
+
+        li.addEventListener("click", () => {
+            if (activeDetails && activeDetails !== details) {
+                activeDetails.style.display = "none";
+            }
+            details.style.display = details.style.display === "block" ? "none" : "block";
+            activeDetails = details.style.display === "block" ? details : null;
+        });
+
+        li.appendChild(details);
+        projectList.appendChild(li);
+    });
+
+    // Mostrar u ocultar botones de paginación
+    document.getElementById("prev-page").style.display = page > 1 ? "block" : "none";
+    document.getElementById("next-page").style.display = page < Math.ceil(projects.length / projectsPerPage) ? "block" : "none";
+}
+
+// Eventos para cambiar de página
+document.getElementById("prev-page").addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePaginatedProjectList(codeProjects, currentPage);
+    }
+});
+
+document.getElementById("next-page").addEventListener("click", () => {
+    if (currentPage < Math.ceil(codeProjects.length / projectsPerPage)) {
+        currentPage++;
+        updatePaginatedProjectList(codeProjects, currentPage);
+    }
+});
+
+
+
+
+
+function updateProjectList(projects) {
+    projectList.innerHTML = ""; // Limpiar lista
+
+    projects.forEach((project, index) => {
+        const li = document.createElement("li");
+        li.classList.add("project-item", fonts[index % fonts.length]); // Asigna una fuente diferente
+        li.textContent = project.name;
+        li.setAttribute("data-image", project.image);
+
+        // Crear contenedor de detalles desplegable
+        const details = document.createElement("div");
+        details.classList.add("project-details");
+        details.innerHTML = `
+            <p>${project.description}</p>
+            <a href="${project.link}" target="_blank">Ver más</a>
+        `;
+
+        // Evento de hover para cambiar imagen
+        li.addEventListener("mouseover", () => {
+            projectImage.src = project.image;
+            projectImage.style.display = "block";
+        });
+
+        li.addEventListener("mouseleave", () => {
+            projectImage.style.display = "none";
+        });
+
+        // Evento para desplegar detalles
+        li.addEventListener("click", () => {
+            if (activeDetails && activeDetails !== details) {
+                activeDetails.style.display = "none"; // Oculta el anterior desplegable
+            }
+            details.style.display = details.style.display === "block" ? "none" : "block";
+            activeDetails = details.style.display === "block" ? details : null;
+        });
+
+        li.appendChild(details);
+        projectList.appendChild(li);
+    });
+}
+
+
+       
+        // Alternar entre "WEB" y "CÓDIGO"
+        categoryToggle.addEventListener("click", () => {
+            if (categoryText.textContent === "WEB") {
+                categoryText.textContent = "CÓDIGO";
+                currentPage = 1; // Reiniciar a la primera página
+                updatePaginatedProjectList(codeProjects, currentPage);
+                document.querySelector(".pagination").style.display = "flex"; // Mostrar paginación
+            } else {
+                categoryText.textContent = "WEB";
+                updateProjectList(webProjects);
+                document.querySelector(".pagination").style.display = "none"; // Ocultar paginación
+            }
+        });
+
+
+
+        // Inicializar con proyectos web
+        updateProjectList(webProjects);
+
+    </script>
+
+
+
+
+
+    <!---->
+
+
+
+
+
+    <script>
+        
+        
+        function revealOnScroll() {
+            texts.forEach((text, index) => {
+                if (text.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                    setTimeout(() => {
+                        text.classList.add("show");
+                    }, index * 500);
+                }
+            });
+        }
+        
+        // Aparecer cuando se carga la página
+        window.addEventListener("load", () => {
+            revealOnScroll();
+        });
+
+        // Mostrar al hacer scroll
+        window.addEventListener("scroll", revealOnScroll);
+
+        //----------------------------------------------
+        window.addEventListener("load", () => {
+            texts = document.querySelectorAll(".text");
+
+            texts.forEach((text, index) => {
+                setTimeout(() => {
+                    text.classList.add("show");
+                }, index * 300); // Retraso escalonado de 300ms entre cada h1
+            });
+        });
+
+        // Función para abrir/cerrar el menú de navegación
+        menuBtn = document.getElementById("menu-btn");
+        navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        
+    </script>
+
+
+</body>
+</html>

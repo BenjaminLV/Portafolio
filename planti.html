@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            overflow: hidden; /* Esta línea evita que se pueda scrollear */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+            transition: background 0.5s;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-btn" id="menu-btn">&#9776;</button>
+
+    <div class="navbar" id="navbar">
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="info/CV-López_Villarraso_Benjamín .pdf" target="_blank">Curriculum</a>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="row">
+                    <span>&copy; Benjamín López Villaraso 2025</span>
+                    <span>Full Stack Developer</span>
+                </div>
+                <div class="row">
+                    <span>benjaminlopezvillaraso@gmail.com</span>
+                    <span>628539739</span>
+                    <span>Granada, España</span>
+                </div>
+            </div>
+            <div class="redes-sociales">
+                <a href="https://www.linkedin.com/in/benjamin-l%C3%B3pez-villarraso-936440335/" target="_blank"><img src="imagenes/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/BenjaminLV" target="_blank"><img src="imagenes/github.png" alt="GitHub"></a>
+                <a href="https://www.instagram.com/lopezz.vllrrso_/?next=%2Fdirect%2Finbox%2F" target="_blank" style="padding-left: 28px;"><img src="imagenes/instagram.png" alt="Instagram"></a>
+
+            </div>
+        </footer>
+        
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+
+    <div class="header" id="header">
+        <a href="index.html"><img src="imagenes/logo_negro-removebg.png" alt="Logo" style="height: 100px; width: 100px;"></a>
+    </div>
+    <div class="fixed-icon">
+        <img src="imagenes/logo_negro.png" alt="icon" width="20">
+        <span>EN</span>
+    </div>
+    <!-- Contenedor de los "Sobre mí" debajo del logo -->
+    <div class="welcome-container">
+        <script>
+            for (let i = 0; i < 50; i++) {
+                document.write('<div class="welcome-bottom">Sobre mí</div>');
+            }
+        </script>
+    </div>
+
+
+
+
+
+
+
+    
+
+
+    <script>
+        let lastScrollTop = 0;
+        header = document.getElementById("header");
+        texts = document.querySelectorAll(".text");
+
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.scrollY;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hidden");
+            } else {
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = scrollTop;
+        });
+        
+        function revealOnScroll() {
+            texts.forEach((text, index) => {
+                if (text.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                    setTimeout(() => {
+                        text.classList.add("show");
+                    }, index * 500);
+                }
+            });
+        }
+        
+        // Aparecer cuando se carga la página
+        window.addEventListener("load", () => {
+            revealOnScroll();
+        });
+
+        // Mostrar al hacer scroll
+        window.addEventListener("scroll", revealOnScroll);
+
+        //----------------------------------------------
+        window.addEventListener("load", () => {
+            texts = document.querySelectorAll(".text");
+
+            texts.forEach((text, index) => {
+                setTimeout(() => {
+                    text.classList.add("show");
+                }, index * 300); // Retraso escalonado de 300ms entre cada h1
+            });
+        });
+
+        // Función para abrir/cerrar el menú de navegación
+        menuBtn = document.getElementById("menu-btn");
+        navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+
+
+</body>
+</html>

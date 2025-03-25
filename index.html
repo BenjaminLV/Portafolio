@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin LV</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            overflow: hidden; /* Esta línea evita que se pueda scrollear */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #0c0d11 30%, #006996 60%);
+            color: white;
+            transition: background 0.5s;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+        }
+        .content {
+            padding-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            justify-content: space-between;
+        }
+        .left {
+            flex: 1;
+            text-align: center;
+        }
+        .right {
+            top: 10px;
+            flex: 2;
+            position: relative;
+            text-align: right; /* Alinea el texto a la derecha */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente */
+            align-items: flex-end; /* Pegado a la derecha */
+            height: 100%; /* Ocupa toda la altura disponible */
+            padding-right: 4%; /* Espaciado respecto al borde derecho */
+        }
+
+        
+
+        /* Inicialmente ocultos */
+        .text {
+            opacity: 0;
+        }
+
+        /* Se animarán cuando se agregue la clase "show" */
+        .text.show {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        #text1 {
+            position: relative;
+            
+            left: -100px;
+            color: #c1aa75;
+        }
+
+        #text2{
+            position: relative;
+            left: 50px;
+            color: white;
+        }
+
+        #text3 {
+            position: relative;
+            left: -200px;
+
+        }
+
+        #paragraph {
+            position: relative;
+            
+            top: 50px;
+            font-size: 1.2vw;
+            width: 110%;
+            line-height: 1.5;
+            margin: 0 auto; /* Centra el párrafo horizontalmente */
+            text-align: center; /* Centra el texto dentro del párrafo */
+        }
+        
+
+        #yo{
+            margin-left: -50px;
+            width: auto;
+            height: 920px;
+            margin-top: -10px;
+        }
+
+        /* Contenedores de Bienvenidos */
+        .welcome-container, .welcome-container-bottom {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+        }
+        .welcome-container {
+            top: 100px; /* Ajustado más abajo en la página */
+        }
+        .welcome-container-bottom {
+            bottom: 10px;
+        }
+
+        hr{
+            /*que el hr este por delante de todos los elementos*/
+            margin-left: -17px;
+            position: relative;
+            z-index: 2;
+            border: 2px solid white;
+            margin-top: -7px;
+            width: 91.5%;
+        }
+
+
+
+
+
+        /* Animación infinita hacia la derecha */
+        .welcome-bottom {
+            position: relative;
+            left: -150px;
+            display: inline-block;
+            font-size: 28px;
+            color: white;
+            padding: 0 20px;
+            font-family: pig;
+            animation: moveRight 20s linear infinite; /* Ajusta el tiempo para una animación más fluida */
+        }
+
+        #b-letter {
+            animation: changeFont 5s steps(4) infinite; /* Dividido en 4 pasos */
+            display: inline-block;
+            font-size: 6.5vw;  /* Mantener el tamaño uniforme */
+            line-height: 1; /* Asegura que no haya cambio en la altura de la línea */
+            background-color: white;
+            background-size: 20% 20%;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-btn" id="menu-btn">&#9776;</button>
+
+    <div class="navbar" id="navbar">
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="info/CV-López_Villarraso_Benjamín .pdf" target="_blank">Curriculum</a>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="row">
+                    <span>&copy; Benjamín López Villaraso 2025</span>
+                    <span>Full Stack Developer</span>
+                </div>
+                <div class="row">
+                    <span>benjaminlopezvillaraso@gmail.com</span>
+                    <span>628539739</span>
+                    <span>Granada, España</span>
+                </div>
+            </div>
+            <div class="redes-sociales">
+                <a href="https://www.linkedin.com/in/benjamin-l%C3%B3pez-villarraso-936440335/" target="_blank"><img src="imagenes/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/BenjaminLV" target="_blank"><img src="imagenes/github.png" alt="GitHub"></a>
+                <a href="https://www.instagram.com/lopezz.vllrrso_/?next=%2Fdirect%2Finbox%2F" target="_blank" style="padding-left: 28px;"><img src="imagenes/instagram.png" alt="Instagram"></a>
+
+            </div>
+        </footer>
+        
+    </div>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+
+    <div class="header" id="header">
+        <img src="imagenes/logo_negro-removebg.png" alt="Logo" style="height: 100px; width: 100px;">
+    </div>
+    <div class="fixed-icon">
+        <img src="imagenes/logo_negro.png" alt="icon" width="20">
+        <span>EN</span>
+    </div>
+
+     
+
+    <!-- Contenedor de los "Bienvenidos" en la parte inferior -->
+    <div class="welcome-container-bottom">
+        <script>
+            for (let i = 0; i < 50; i++) {
+                document.write('<div class="welcome-bottom">Bienvenido</div>');
+            }
+        </script>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <div class="left">
+                <img src="imagenes/1.gif" alt="Imagen" width="100%" id="yo">
+                <hr>
+            </div>
+            <div class="right">
+                <br><br><br><br>
+                <h1 class="text" id="text1"><span style="color: #c1aa75;" id="b-letter">B</span>enjamín</h1>
+                <h1 class="text" id="text2"><span style="color: #c1aa75;">L</span>ópez</h1>
+                <h1 class="text" id="text3"><span style="color: #c1aa75;">V</span>illarraso</h1> <br><br>
+                <p class="text" id="paragraph" ><span style="color: #c1aa75;">¡Bienvenidos!</span> Soy Benjamín López Villaraso, un joven con una imaginación desbordante, aunque mis manos sean pequeñas. Este espacio está dedicado a mostrar un poco de quién soy, tanto a través de proyectos en los que he trabajado como de información personal. Me llena de satisfacción que estés aquí, y espero que disfrutes navegando por este portfolio que refleja mi pasión y creatividad.</p>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-section"></div>
+    
+    <script>
+        let lastScrollTop = 0;
+        header = document.getElementById("header");
+        texts = document.querySelectorAll(".text");
+
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.scrollY;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hidden");
+            } else {
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = scrollTop;
+        });
+        
+        function revealOnScroll() {
+            texts.forEach((text, index) => {
+                if (text.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                    setTimeout(() => {
+                        text.classList.add("show");
+                    }, index * 500);
+                }
+            });
+        }
+        
+        // Aparecer cuando se carga la página
+        window.addEventListener("load", () => {
+            revealOnScroll();
+        });
+
+        // Mostrar al hacer scroll
+        window.addEventListener("scroll", revealOnScroll);
+
+        //----------------------------------------------
+        window.addEventListener("load", () => {
+            texts = document.querySelectorAll(".text");
+
+            texts.forEach((text, index) => {
+                setTimeout(() => {
+                    text.classList.add("show");
+                }, index * 300); // Retraso escalonado de 300ms entre cada h1
+            });
+        });
+
+        // Función para abrir/cerrar el menú de navegación
+        menuBtn = document.getElementById("menu-btn");
+        navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+            transition: background 0.5s;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1400px;
+
+            background-image: url('imagenes/fondo.jpg');
+            background-size: auto 100%;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+
+        }
+
+        
+       
+        /* Contenedores de Bienvenidos */
+        .welcome-container, .welcome-container-bottom {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            
+          }
+          .welcome-container {
+            margin-top: 7.5%;
+            position: relative; /* Fija el contenedor arriba del todo */
+            top: -200; /* Se asegura de que esté pegado al borde superior */
+            width: 100%;
+            display: flex;
+            
+            
+            padding: 10px 0; /* Espacio para que los textos no estén pegados al borde */
+            
+          }
+
+          .welcome-bottom {
+            position: relative;
+            left: -150px;
+            display: inline-block;
+            font-size: 28px;
+            color: white;
+            padding: 0 20px;
+            font-family: pig;
+            animation: moveRight 20s linear infinite; /* Ajusta el tiempo para una animación más fluida */
+        }
+
+        /* Opcional: Ajuste de la animación */
+        @keyframes moveRight {
+            from {
+              transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+
+
+
+    .container {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-section {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 430px; /* Movido más abajo */
+      align-items: flex-start;
+    }
+
+    .about-text {
+    margin-top: -130px; /* Movido más abajo */
+      width: 40%;
+      text-align: left;
+      margin-left: 5%; /* Movido un poco más a la derecha */
+    }
+
+    .about-text h1 {
+        color: #e6c989;
+        font-family: brolimo;
+      font-size: 64px;
+    }
+
+    .about-text p {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      width: 220%;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin-right: 3%;
+      transform: translate(-5px, -390px); /* Movido 110px más arriba y 55px más a la izquierda */
+    }
+
+    .profile-pic {
+
+        
+        
+      width: 220px;
+      height: 220px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background: url('imagenes/foto-CV.jpg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      top: -253px;
+      left: 28px;
+    }
+
+    .curved-text text {
+        font-family: chunk;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 280px;
+    fill: #c1aa75; /* Cambiado a dorado */
+    font-size: 16px;
+    transition: fill 0.5s ease-in-out;
+}
+
+/* Animación opcional para que el color parpadee suavemente */
+@keyframes colorAnimation {
+    0% { fill: #c1aa75; }
+    50% { fill: #e6c989; } /* Un dorado más claro */
+    100% { fill: #c1aa75; }
+}
+
+
+
+    svg {
+      width: 280px;
+      height: 280px;
+    }
+
+    p{
+        font-family: magi;
+        font-size: 240px;
+    }
+
+    .curved-text text {
+    animation: colorAnimation 3s infinite alternate;
+}
+
+    .rotate {
+      animation: rotate 15s linear infinite;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .skills-section {
+      position: relative;
+      left: 100px;
+      width: 100%;
+      text-align: left;
+      margin-top: -100px;
+    }
+
+    .skills-title {
+        color: #e6c989;
+      font-family: sky;
+      font-size: 32px;
+      margin-bottom: 10px;
+      margin-left: 10%;
+    }
+
+    .skills-text {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      width: 80%;
+      margin-left: 10%;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      width: 120px;
+      height: 120px;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      position: relative;
+      left: -130px;
+    }
+
+    .skill img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .javascript { border-color: yellow;}
+    .python { border-color: blue; }
+    .html { border-color: orange; }
+    .php { border-color: darkblue; }
+    .css { border-color: purple; }
+    .mysql { border-color: red; }
+
+    
+
+    .skill.uno {
+      transform: translateY(15px); /* Ajusta el valor según necesites */
+      
+    }
+    .skill.dos {
+      transform: translateY(115px); /* Ajusta el valor según necesites */
+      
+    }
+
+    .percentage {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill:hover .percentage {
+      opacity: 1;
+    }
+
+
+    .curriculum {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 50px;
+    }
+
+
+
+
+    /*boton iluminacion*/
+
+
+    .wrapper-boton-custom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -370px;
+    }
+
+    #boton-iluminado {
+        position: relative;
+        display: inline-block;
+        padding: 20px 25px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #c1aa75;
+        font-size: 1.2rem;
+        transition: .5s;
+        overflow: hidden;
+        border: 2px solid #c1aa75;
+        text-decoration: none;
+    }
+
+    #boton-iluminado:hover {
+        background-color: #c1aa75;
+    color: #050801;
+    box-shadow: 0 0 5px #c1aa75,
+                0 0 25px#c1aa75,
+                0 0 50px #c1aa75,
+                0 0 300px #c1aa75;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+    }
+
+    #boton-iluminado span {
+        position: absolute;
+        display: block;
+    }
+
+    #boton-iluminado span:nth-child(1) {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #c1aa75);
+        animation: animar1 1s infinite;
+    }
+
+    @keyframes animar1 {
+        from { left: -100%; }
+        to { left: 100%; }
+    }
+
+    #boton-iluminado span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #c1aa75);
+        animation: animar2 1s infinite;
+        animation-delay: .25s;
+    }
+
+    @keyframes animar2 {
+        from { top: -100%; }
+        to { top: 100%; }
+    }
+
+    #boton-iluminado span:nth-child(3) {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #c1aa75);
+        animation: animar3 1s infinite;
+        animation-delay: .5s;
+    }
+
+    @keyframes animar3 {
+        from { right: -100%; }
+        to { right: 100%; }
+    }
+
+    #boton-iluminado span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #c1aa75);
+        animation: animar4 1s infinite;
+        animation-delay: .75s;
+    }
+
+    @keyframes animar4 {
+        from { bottom: -100%; }
+        to { bottom: 100%; }
+    }
+
+
+    
+
+    </style>
+</head>
+<body>
+    <button class="menu-btn" id="menu-btn">&#9776;</button>
+
+    <div class="navbar" id="navbar">
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="info/CV-López_Villarraso_Benjamín .pdf" target="_blank">Curriculum</a>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="row">
+                    <span>&copy; Benjamín López Villaraso 2025</span>
+                    <span>Full Stack Developer</span>
+                </div>
+                <div class="row">
+                    <span>benjaminlopezvillaraso@gmail.com</span>
+                    <span>628539739</span>
+                    <span>Granada, España</span>
+                </div>
+            </div>
+            <div class="redes-sociales">
+                <a href="https://www.linkedin.com/in/benjamin-l%C3%B3pez-villarraso-936440335/" target="_blank"><img src="imagenes/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/BenjaminLV" target="_blank"><img src="imagenes/github.png" alt="GitHub"></a>
+                <a href="https://www.instagram.com/lopezz.vllrrso_/?next=%2Fdirect%2Finbox%2F" target="_blank" style="padding-left: 28px;"><img src="imagenes/instagram.png" alt="Instagram"></a>
+
+            </div>
+        </footer>
+        
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+
+    <div class="header" id="header">
+        <a href="index.html"><img src="imagenes/logo_negro-removebg.png" alt="Logo" style="height: 100px; width: 100px;"></a>
+    </div>
+    <div class="fixed-icon">
+        <img src="imagenes/logo_negro.png" alt="icon" width="20">
+        <span>EN</span>
+    </div>
+
+    <!-- Contenedor de los "Sobre mí" debajo del logo -->
+    <div class="welcome-container">
+        <script>
+            for (let i = 0; i < 50; i++) {
+                document.write('<div class="welcome-bottom">Sobre mí</div>');
+            }
+        </script>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+        <div class="about-section">
+          <div class="about-text">
+            <h1>SOBRE MÍ</h1>
+            <p>Soy un desarrollador Full Stack con experiencia en la creación de aplicaciones web modernas y eficientes. Mi enfoque se centra en el desarrollo escalable, la experiencia de usuario optimizada y el rendimiento de las aplicaciones.</p>
+            <p>Me apasiona aprender y experimentar con nuevas tecnologías, siempre buscando mejorar mis habilidades y aportar soluciones innovadoras a cada proyecto. Manejo tecnologías como JavaScript (React, Node.js), Python (Django, Flask), bases de datos como MySQL y MongoDB, y herramientas de control de versiones como Git y GitHub.</p>
+            <p>Siempre estoy en búsqueda de nuevos desafíos y oportunidades para colaborar en proyectos que generen impacto. ¡Hablemos y construyamos algo increíble juntos! 🚀</p>
+          </div>
+          <div class="profile-container">
+            <div class="curved-text rotate">
+              <svg viewBox="0 0 280 280">
+                <defs>
+                  <path id="circlePath" d="M 140, 140 m -120, 0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
+                </defs>
+                <text>
+                  <textPath href="#circlePath" startOffset="50%" style="color: #c1aa75;">
+                    CREATIVO &bull; DESARROLLADOR &bull; ENTUSIASTA &bull; INNOVADOR &bull; APASIONADO &bull; CURIOSO &bull; COLABORADOR &bull; APRENDIZ &bull;
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+            <div class="profile-pic"></div>
+          </div>
+        </div>
+        <div class="skills-section">
+
+
+
+          <br><br><br><br><br><br><br><br><br>
+
+
+
+          <h2 class="skills-title">Habilidades</h2>
+          <p class="skills-text">Tengo experiencia con diversas tecnologías y lenguajes de programación como: </p>
+          <div class="skills-container">
+            <div class="skill javascript uno">
+              <img src="imagenes/javascript.png" alt="JavaScript">
+              <div class="percentage">75%</div>
+            </div>
+            <div class="skill python dos">
+              <img src="imagenes/python.png" alt="Python">
+              <div class="percentage">75%</div>
+            </div>
+            <div class="skill html uno">
+              <img src="imagenes/html.png" alt="HTML">
+              <div class="percentage">80%</div>
+            </div>
+            <div class="skill php dos">
+              <img src="imagenes/php.png" alt="PHP">
+              <div class="percentage">70%</div>
+            </div>
+            <div class="skill css uno">
+              <img src="imagenes/css.png" alt="CSS">
+              <div class="percentage">85%</div>
+            </div>
+            <div class="skill mysql dos">
+              <img src="imagenes/mysql.png" alt="MySQL">
+              <div class="percentage">65%</div>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper-boton-custom">
+            <a href="info/CV-López_Villarraso_Benjamín .pdf" id="boton-iluminado" target="_blank">Curriculum
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+      </div>
+
+
+
+
+
+
+    <script>
+        let lastScrollTop = 0;
+        header = document.getElementById("header");
+        texts = document.querySelectorAll(".text");
+
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.scrollY;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hidden");
+            } else {
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = scrollTop;
+        });
+        
+        function revealOnScroll() {
+            texts.forEach((text, index) => {
+                if (text.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                    setTimeout(() => {
+                        text.classList.add("show");
+                    }, index * 500);
+                }
+            });
+        }
+        
+        // Aparecer cuando se carga la página
+        window.addEventListener("load", () => {
+            revealOnScroll();
+        });
+
+        // Mostrar al hacer scroll
+        window.addEventListener("scroll", revealOnScroll);
+
+        //----------------------------------------------
+        window.addEventListener("load", () => {
+            texts = document.querySelectorAll(".text");
+
+            texts.forEach((text, index) => {
+                setTimeout(() => {
+                    text.classList.add("show");
+                }, index * 300); // Retraso escalonado de 300ms entre cada h1
+            });
+        });
+
+        // Función para abrir/cerrar el menú de navegación
+        menuBtn = document.getElementById("menu-btn");
+        navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+    </script>
+
+
+</body>
+</html>

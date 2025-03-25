@@ -1,0 +1,243 @@
+@font-face{
+                
+                
+                
+    font-family: 'brolimo';
+    src: url(fuentes/BrolimoRegular.ttf);
+}
+
+@font-face{
+
+
+
+    font-family: 'chunk';
+    src: url(fuentes/ChunkFive-Regular.ttf);
+}
+
+@font-face{
+
+    font-family: 'magi';
+    src: url(fuentes/MagilioRegular-8Mxvg.otf);
+}
+
+@font-face{
+
+    font-family: 'pig';
+    src: url(fuentes/Pigeon.otf);
+}
+
+@font-face{
+
+    font-family: 'sky';
+    src: url(fuentes/Skyscapers.ttf);
+}
+
+
+.header {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    transition: top 0.3s, background 0.5s;
+}
+.hidden {
+    top: -100px;
+    background: transparent;
+}
+.fixed-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Keyframes para movimiento continuo */
+@keyframes moveRight {
+    0% {
+        transform: translateX(-100%); /* Empieza fuera de la pantalla */
+    }
+    100% {
+        transform: translateX(100%); /* Se mueve fuera de la pantalla hacia la derecha */
+    }
+}
+
+h1 {
+    font-size: 6.5vw; /* Tamaño mucho más grande en relación con la pantalla */
+    margin: 0;
+    font-family: 'brolimo', sans-serif;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-section {
+    height: 100vh;
+}
+
+.navbar {
+    size: 200%;
+    position: fixed;
+    top: 0;
+    left: 0; /* Cambié de -10px a 0 para que empiece en el borde de la pantalla */
+    width: 100%; /* Cambié de 50% a 100% para que ocupe toda la pantalla */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 3;
+}
+
+.navbar a {
+    font-family: 'brolimo';
+    position: relative;
+    top: -80px;
+    font-size: 9rem;
+    color: white;
+    text-decoration: none;  /* Evita el subrayado por defecto */
+    margin: 50px 0;
+    transition: color 0.3s, text-decoration 0.3s, font-family 0.3s, letter-spacing 0.3s; /* Solo transición de color, font-family y letter-spacing */
+    display: inline-block; /* Evita que el tamaño cambie */
+    line-height: 1; /* Asegura que la línea de texto no cambie de altura */
+    letter-spacing: 0; /* Asegura que no haya un espaciado extraño entre letras */
+}
+
+
+.navbar a:hover {
+    text-decoration: none;  /* Evita el subrayado por defecto */
+    color: #c1aa75;
+    
+    background-image: url('imagenes/fondo_texto2.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.navbar a::first-letter {
+    font-family: 'sky'; /* Aplica la fuente 'sky' solo a la primera letra */
+    font-size: 1.2em; /* Ajusta el tamaño de la primera letra */
+    color: #c1aa75; /* Puedes cambiar el color si lo deseas */
+    transition: font-family 0.3s, font-size 0.3s, color 0.3s; /* Animación suave */
+}
+
+.navbar.active {
+    transform: translateX(0);
+}
+
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 4;
+    transition: transform 0.3s ease-in-out, opacity 0.3s;
+}
+
+.menu-btn:hover {
+    transform: rotate(180deg);
+    opacity: 0.8;
+}
+
+/* Ajustes de posición */
+.navbar a:nth-child(1) { align-self: flex-start; } /* Proyectos */
+.navbar a:nth-child(2) { align-self: flex-start; margin-left: 30%; } /* Sobre mí */
+.navbar a:nth-child(3) { align-self: flex-start; margin-left: 10%; } /* Curriculum */
+
+@keyframes changeFont {
+    0%, 100% {
+        font-family: 'brolimo';
+    }
+    25% {
+        font-family: 'chunk';
+    }
+    50% {
+        font-family: 'magi';
+    }
+    75% {
+        font-family: 'pig';
+    }
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 97.5%;
+    padding: 15px 20px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 100px; /* Más espacio entre los elementos */
+}
+
+.redes-sociales {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+
+    
+}
+
+.redes-sociales img {
+    width: 40px;
+    height: auto;
+    position: relative;
+    left: -230px;
+    bottom: -150px;	
+
+    
+}
+
+.redes-sociales a:hover{
+    background: none;
+} 
+
+
+.row span {
+    white-space: nowrap; /* Evita saltos de línea */
+}
+

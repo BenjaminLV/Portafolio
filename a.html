@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Página Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 1400px;
+    }
+
+    .container {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-section {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 430px; /* Movido más abajo */
+      align-items: flex-start;
+    }
+
+    .about-text {
+      width: 40%;
+      text-align: left;
+      margin-left: 5%; /* Movido un poco más a la derecha */
+    }
+
+    .about-text h1 {
+      font-size: 32px;
+    }
+
+    .about-text p {
+      width: 220%;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin-right: 3%;
+      transform: translate(-55px, -220px); /* Movido 110px más arriba y 55px más a la izquierda */
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background: url('path/to/tu-foto.jpg') no-repeat center center;
+      background-size: cover;
+      position: absolute;
+      top: 20px;
+      left: 40px;
+    }
+
+    .curved-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 280px;
+    }
+
+    svg {
+      width: 280px;
+      height: 280px;
+    }
+
+    .curved-text text {
+      fill: white;
+      font-size: 16px;
+    }
+
+    .rotate {
+      animation: rotate 15s linear infinite;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .skills-section {
+      position: relative;
+      left: 100px;
+      width: 100%;
+      text-align: left;
+      margin-top: 50px;
+    }
+
+    .skills-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      margin-left: 10%;
+    }
+
+    .skills-text {
+      width: 80%;
+      margin-left: 10%;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      width: 120px;
+      height: 120px;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      position: relative;
+      left: -130px;
+    }
+
+    .skill img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .javascript { border-color: yellow;}
+    .python { border-color: blue; }
+    .html { border-color: orange; }
+    .php { border-color: darkblue; }
+    .css { border-color: purple; }
+    .mysql { border-color: red; }
+
+    
+
+    .skill.uno {
+      transform: translateY(15px); /* Ajusta el valor según necesites */
+      
+    }
+    .skill.dos {
+      transform: translateY(115px); /* Ajusta el valor según necesites */
+      
+    }
+
+    .percentage {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill:hover .percentage {
+      opacity: 1;
+    }
+
+
+    .curriculum {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 50px;
+    }
+
+
+
+
+
+
+
+
+.wrapper-boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+}
+#iluminacion{
+    top: -860px;
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #eede2e;
+    font-size: 1.2rem;
+    transition: .5s;
+    overflow: hidden;
+    margin-right: 70px;
+}
+#iluminacion:hover{
+    background-color: #eede2e;
+    color: #050801;
+    box-shadow: 0 0 5px #eede2e,
+                0 0 25px#eede2e,
+                0 0 50px #eede2e,
+                0 0 300px #eede2e;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+}
+#iluminacion:first-child{
+    filter: hue-rotate(225deg);
+}
+#iluminacion:last-child{
+    filter: hue-rotate(90deg);
+}
+span{
+    position: absolute;
+    display: block;
+}
+span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,transparent,#eede2e);
+    animation: animate1 1s infinite;
+}
+@keyframes animate1{
+    0%{
+        left:-100%;
+    }
+    100%{
+        left: 100%;
+    }
+}
+#iluminacion span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#eede2e);
+    animation: animate2 1s infinite;
+    animation-delay: .25s;
+}
+@keyframes animate2{
+    0%{
+        top:-100%;
+    }
+    100%{
+        top: 100%;
+    }
+}
+#iluminacion span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(270deg,transparent,#eede2e);
+    animation: animate3 1s infinite;
+    animation-delay: .5s;
+}
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+#iluminacion span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#eede2e);
+    animation: animate4 1s infinite;
+    animation-delay: .75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    100%{
+        bottom: 100%;
+    }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="about-section">
+      <div class="about-text">
+        <h1>SOBRE MÍ</h1>
+        <p>Soy un desarrollador Full Stack con experiencia en la creación de aplicaciones web modernas y eficientes. Mi enfoque se centra en el desarrollo escalable, la experiencia de usuario optimizada y el rendimiento de las aplicaciones.</p>
+        <p>Me apasiona aprender y experimentar con nuevas tecnologías, siempre buscando mejorar mis habilidades y aportar soluciones innovadoras a cada proyecto. Manejo tecnologías como JavaScript (React, Node.js), Python (Django, Flask), bases de datos como MySQL y MongoDB, y herramientas de control de versiones como Git y GitHub.</p>
+        <p>Siempre estoy en búsqueda de nuevos desafíos y oportunidades para colaborar en proyectos que generen impacto. ¡Hablemos y construyamos algo increíble juntos! 🚀</p>
+      </div>
+      <div class="profile-container">
+        <div class="curved-text rotate">
+          <svg viewBox="0 0 280 280">
+            <defs>
+              <path id="circlePath" d="M 140, 140 m -120, 0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
+            </defs>
+            <text>
+              <textPath href="#circlePath" startOffset="50%">
+                &bull; CREATIVO &bull; DESARROLLADOR &bull; ENTUSIASTA &bull; INNOVADOR &bull; APASIONADO &bull; CURIOSO &bull; COLABORADOR &bull; APRENDIZ &bull;
+              </textPath>
+            </text>
+          </svg>
+        </div>
+        <div class="profile-pic"></div>
+      </div>
+    </div>
+    <div class="skills-section">
+      <br><br><br><br><br><br><br><br><br>
+      <h2 class="skills-title">Habilidades</h2>
+      <p class="skills-text">Tengo experiencia con diversas tecnologías y lenguajes de programación como: </p>
+      <div class="skills-container">
+        <div class="skill javascript uno">
+          <img src="imagenes/logo.png" alt="JavaScript">
+          <div class="percentage">85%</div>
+        </div>
+        <div class="skill python dos">
+          <img src="path/to/python.png" alt="Python">
+          <div class="percentage">90%</div>
+        </div>
+        <div class="skill html uno">
+          <img src="path/to/html.png" alt="HTML">
+          <div class="percentage">95%</div>
+        </div>
+        <div class="skill php dos">
+          <img src="path/to/php.png" alt="PHP">
+          <div class="percentage">80%</div>
+        </div>
+        <div class="skill css uno">
+          <img src="path/to/css.png" alt="CSS">
+          <div class="percentage">88%</div>
+        </div>
+        <div class="skill mysql dos">
+          <img src="path/to/mysql.png" alt="MySQL">
+          <div class="percentage">85%</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper-boton">
+      <a href="" id="iluminacion">curriculum
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+      </a>
+    </div>
+  </div>
+</body>
+</html>

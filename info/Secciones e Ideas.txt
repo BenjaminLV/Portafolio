@@ -1,0 +1,40 @@
+abajo a la izquierda © Benjamin Lopez Villarraso 2025, y debajo Web developer
+al lado mi numero de telefono y debajo Correo
+luego a la derecha Granada España                                  (https://vanholtz.co/)
+								   (https://itssharl.ee/about)
+
+1.Sobre mi:
+	-Quien soy (introdcción personal)
+	-habilidades
+	-Objetivos "profesionales"
+	
+	-redes sociales (Linkedin, Github, Instagram) en circulos
+	
+	-Curriculum pdf entero mas abajo enlace de descarga
+
+2.Curriculum(enlace al apartadod e la pagina)
+
+3.Trabajos:
+	-Paginas webs:
+		panadería
+		colegio
+		tienda
+		Porfolio
+		etc...
+
+	-codigo:
+		
+ESTILOS------------------------------------------------------------------------------
++fuentes:
+	-https://www.freefaces.gallery/typefaces/brolimo
+	-https://www.freefaces.gallery/typefaces/skyscapers
+	-https://www.freefaces.gallery/typefaces/chunk
+	-https://www.freefaces.gallery/typefaces/magilio
+
+	-https://www.freefaces.gallery/typefaces/pigeon
+-Colores:
+	CSS:
+	-Colores principales
+		Azul negro
+	-Colores Secundarios
+		Rojo beis
